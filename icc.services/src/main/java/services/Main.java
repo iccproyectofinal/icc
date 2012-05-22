@@ -26,7 +26,9 @@ public class Main {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		/*Componente s1 = new ComponenteCompuesto(new Sistema(11, "s1", 1, 1, 1, 1, 1));
+		Componente s1 = new ComponenteCompuesto(new Sistema(11, "s1", 1, 1, 1, 1, 1));
+
+		Barra tipoB = new Barra(21, "b1", 2, 2);
 		
 		Componente b1 = new ComponenteCompuesto(new Barra(21, "b1", 2, 2));
 		s1.cargarHijo(b1);
@@ -52,6 +54,10 @@ public class Main {
 		Componente bl411 = new ComponenteCompuesto(new Barra (62, "bl411", 2, 2));
 		l41.cargarHijo(bl411);
 		
+		//Componente bl412 = new ComponenteCompuesto(new Barra (62, "bl412", 2, 2));
+		//l41.cargarHijo(bl412);
+		
+		
 		Componente bt412 = new ComponenteCompuesto(new Barra (63, "bt412", 2, 2));
 		t42.cargarHijo(bt412);
 		
@@ -64,6 +70,7 @@ public class Main {
 		
 		s1.mostrarArbol();
 	
+		/*
 		ComponenteService s = new ComponenteService();
 		List<Componente> lista = s.traerLista(s1);
 		
@@ -71,23 +78,17 @@ public class Main {
 		for (Componente i: lista){
 			System.out.println(i);
 		}
+		*/		
 		
-		Componente componenteBuscado = s.traerPorId(71, lista);
-		System.out.println("El componente buscado es: " + componenteBuscado);*/
+		CalcularCCService ccc = new CalcularCCService(s1);
+		ccc.llenarMatrizAdmitancia();
 		
-		/*CalcularCCService ccc = new CalcularCCService();
-		List<Componente> barras = ccc.buscarBarras(s1);
-		for (Iterator barras){
 			
-		}
-		System.out.println("fin");*/
-		
+		/*
+		System.out.println("fin");
 		DriverXml xml = new DriverXml("circuito.xml");
-		xml.parse();
-		Componente resultado = xml.traerResultado();
-		
-		resultado.mostrarArbol();
-		
+		xml.parse();*/
+
 	}
 
 }
