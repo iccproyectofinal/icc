@@ -11,6 +11,12 @@ public class CalcularCCService {
 	/**
 	 * @param args
 	 */
+	
+	/*
+	 * hcaer cosas
+	 * */
+	
+	 
 	private double matrizAdmitancia [][];
 	private List<Componente> listComponentes = new ArrayList<Componente>();
 	private List<Componente> barras = new ArrayList<Componente>();
