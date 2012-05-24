@@ -95,7 +95,7 @@ public class Barra implements TipoComponente {
 	/**
 	 * @return the voltajeReferencia
 	 */
-	public Double getVoltajeReferencia() {
+	public double getVoltajeReferencia() {
 		return voltajeReferencia;
 	}
 

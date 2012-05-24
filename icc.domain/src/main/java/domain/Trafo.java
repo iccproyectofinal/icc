@@ -68,4 +68,9 @@ public class Trafo implements TipoComponente {
 		return tensionCC;
 	}
 
+	public double getVoltajeReferencia() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }

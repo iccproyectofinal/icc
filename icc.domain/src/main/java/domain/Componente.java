@@ -87,6 +87,6 @@ public abstract class Componente {
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return tipoComponente.getNombre();
+		return String.valueOf(tipoComponente.getId());
 	}
 }

@@ -134,4 +134,9 @@ public class Motor implements TipoComponente {
 		return cosenoFi;
 	}
 
+	public double getVoltajeReferencia() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }
