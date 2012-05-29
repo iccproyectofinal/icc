@@ -16,6 +16,7 @@ public abstract class Componente {
 	 */
 	public Componente(TipoComponente tipoComponente) {
 		super();
+		//this.padre=null;
 		this.tipoComponente = tipoComponente;
 	}
 	
@@ -66,7 +67,11 @@ public abstract class Componente {
 	}
 	
 	public Componente mostrarArbol() {
+		
 		System.out.println(this + " padre: " + padre);
+		System.out.println(this + " tipo: " + this.getTipoComponente().getClass());
+		System.out.println(this + " impedancia: " + this.getTipoComponente().getImpedancia());
+		System.out.println("----");
 		
 		for (Componente i : hijos) {
 			i.mostrarArbol();
@@ -87,6 +92,7 @@ public abstract class Componente {
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return tipoComponente.getNombre();
+		
+		return String.valueOf(tipoComponente.getId());
 	}
 }

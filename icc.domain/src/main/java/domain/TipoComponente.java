@@ -15,4 +15,5 @@ public interface TipoComponente {
 	double getImpedancia();
 	TipoComponente setImpedancia(double impedancia);
 	double getAdmitancia();
+	double getVoltajeReferencia();
 }

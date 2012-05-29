@@ -153,4 +153,9 @@ public class Sistema implements TipoComponente {
 		return 1 / getImpedancia();
 	}
 
+	public double getVoltajeReferencia() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }

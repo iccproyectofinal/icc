@@ -151,4 +151,9 @@ public class Linea implements TipoComponente {
 		return longitud;
 	}
 
+	public double getVoltajeReferencia() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }

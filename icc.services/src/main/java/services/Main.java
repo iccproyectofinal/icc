@@ -3,8 +3,13 @@
  */
 package services;
 
+
+import java.util.LinkedHashMap;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.HashMap;
 import java.util.ArrayList;
+import java.util.Map;
 
 
 import domain.Barra;
@@ -26,6 +31,7 @@ public class Main {
 	 * @param args
 	 */
 	public static void main(String[] args) {
+		
 		Componente s1 = new ComponenteCompuesto(new Sistema(11, "s1", 1, 1, 1, 1, 1));
 
 		Barra tipoB = new Barra(21, "b1", 2, 2);
@@ -70,25 +76,41 @@ public class Main {
 		
 		s1.mostrarArbol();
 	
-		/*
-		ComponenteService s = new ComponenteService();
-		List<Componente> lista = s.traerLista(s1);
 		
-		
-		for (Componente i: lista){
-			System.out.println(i);
-		}
-		*/		
+		ComponenteService srv = new ComponenteService();
+		//List<Componente> lista = srv.traerLista(s1);
 		
 		CalcularCCService ccc = new CalcularCCService(s1);
-		ccc.llenarMatrizAdmitancia();
+		HashMap<Componente, Double>barraTensionCC= new HashMap<Componente, Double>();
 		
-			
+		
+		//Componente barraSel = srv.traerPorId(41, lista);
+		//System.out.println(barraSel);
+		
+		ccc.calcularCC(b2, barraTensionCC);		
+ 		System.out.println(barraTensionCC);
+ 		//System.out.println(b2);
+		
+		
 		/*
+		 * mc 2805
+		 
 		System.out.println("fin");
 		DriverXml xml = new DriverXml("circuito.xml");
-		xml.parse();*/
-
+		xml.parse();
+		Componente componenteRaiz = xml.traerResultado();
+		componenteRaiz.mostrarArbol();
+		
+		ComponenteService srv = new ComponenteService();
+		List<Componente> lista = srv.traerLista(componenteRaiz);
+		Componente barraSel = srv.traerPorId(41, lista);
+		System.out.println(barraSel);
+				
+		HashMap<Componente, Double>barraTensionCC= new HashMap<Componente, Double>();			
+		CalcularCCService ccc = new CalcularCCService(componenteRaiz);
+		ccc.calcularCC(barraSel, barraTensionCC);		
+ 		System.out.println(barraTensionCC);
+		*/
 	}
 
 }

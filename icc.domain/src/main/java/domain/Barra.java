@@ -3,6 +3,9 @@
  */
 package domain;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @author MCORREA
  *
@@ -22,7 +25,7 @@ public class Barra implements TipoComponente {
 		this.id = id;
 		this.nombre = nombre;
 		this.voltajeReferencia = voltajeRefencia;
-		this.impedancia = impedancia;
+		this.impedancia = (double) 0;
 	}
 
 	/* (non-Javadoc)
@@ -79,8 +82,7 @@ public class Barra implements TipoComponente {
 	 * @see domain.TipoComponente#getAdmitancia()
 	 */
 	public double getAdmitancia() {
-		// TODO Auto-generated method stub
-		//Sumar las admitancias de todos los componentes unidos directamente a la barra
+		// TODO Auto-generated method stub		
 		return 0;
 	}
 
@@ -95,7 +97,7 @@ public class Barra implements TipoComponente {
 	/**
 	 * @return the voltajeReferencia
 	 */
-	public Double getVoltajeReferencia() {
+	public double getVoltajeReferencia() {
 		return voltajeReferencia;
 	}
 

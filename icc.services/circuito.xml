@@ -1,79 +1,88 @@
 <?xml version="1.0"?>
 <circuito>
-<componentes>
-
- <componente>
- <id>1</id>
- <nombre>s1</nombre>
- <tipo>SISTEMA</tipo>
- <impedancia>1</impedancia>
- <potencia>5</potencia>
- </componente>
-
-
- <componente>
- <id>2</id>
- <nombre>b1</nombre>
- <tipo>BARRA</tipo>
- <impedancia>2</impedancia>
- <potencia>5</potencia>
- <padre>1</padre>
- </componente>
-
-<componente>
-<id>3</id>
-<nombre>t1</nombre>
-<tipo>TRAFO</tipo>
-<impedancia>3.33</impedancia>
-<potencia>50</potencia>
-<tensionCC>380</tensionCC>
-<padre>2</padre>
-</componente>
-
-<componente>
-<id>4</id>
-<nombre>L1</nombre>
-<tipo>LINEA</tipo>
-<impedancia>66.66</impedancia>
-<potencia>40</potencia>
-<seccion>25</seccion>
-<conductores>8</conductores>
-<longitud>60</longitud>
-<padre>3</padre>
-</componente>
-
-<componente>
-<id>5</id>
-<nombre>MI MOTORCITO</nombre>
-<tipo>MOTOR</tipo>
-<impedancia>12.31</impedancia>
-<tensionNominal>380</tensionNominal>
-<potenciaNominal>1500</potenciaNominal>
-<cosenoFi>0.91</cosenoFi>
-<padre>4</padre>
-</componente>
-
-<componente>
-<id>6</id>
-<nombre>MI OTRO MOTORCITO EN PARALELO</nombre>
-<tipo>MOTOR</tipo>
-<impedancia>12.31</impedancia>
-<tensionNominal>380</tensionNominal>
-<potenciaNominal>1500</potenciaNominal>
-<cosenoFi>0.91</cosenoFi>
-<padre>4</padre>
-</componente>
-
-<componente>
-<id>7</id>
-<nombre>Y OTRO MAS EN PARALELO</nombre>
-<tipo>MOTOR</tipo>
-<impedancia>12.31</impedancia>
-<tensionNominal>380</tensionNominal>
-<potenciaNominal>1500</potenciaNominal>
-<cosenoFi>0.91</cosenoFi>
-<padre>4</padre>
-</componente>
-
- </componentes>
+<Componentes>
+<Componente>
+  <id>11</id>
+  <nombre>11</nombre>
+  <tipo>SISTEMA</tipo>
+  <impedancia>1</impedancia>
+ </Componente>
+<Componente>
+  <id>21</id>
+  <nombre>21</nombre>
+  <tipo>BARRA</tipo>
+  <padre>11</padre>
+  <impedancia>0</impedancia>
+ </Componente>
+<Componente>
+  <id>31</id>
+  <nombre>31</nombre>
+  <tipo>TRAFO</tipo>
+  <padre>21</padre>
+  <impedancia>1</impedancia>
+ </Componente>
+<Componente>
+  <id>41</id>
+  <nombre>41</nombre>
+  <tipo>BARRA</tipo>
+  <padre>31</padre>
+  <impedancia>0</impedancia>
+ </Componente>
+<Componente>
+  <id>51</id>
+  <nombre>51</nombre>
+  <tipo>TRAFO</tipo>
+  <padre>41</padre>
+  <impedancia>1</impedancia>
+ </Componente>
+<Componente>
+  <id>52</id>
+  <nombre>52</nombre>
+  <tipo>LINEA</tipo>
+  <padre>41</padre>
+  <impedancia>1</impedancia>
+ </Componente>
+<Componente>
+  <id>53</id>
+  <nombre>53</nombre>
+  <tipo>TRAFO</tipo>
+  <padre>41</padre>
+  <impedancia>1</impedancia>
+ </Componente>
+<Componente>
+  <id>61</id>
+  <nombre>61</nombre>
+  <tipo>BARRA</tipo>
+  <padre>51</padre>
+  <impedancia>0</impedancia>
+ </Componente>
+<Componente>
+  <id>62</id>
+  <nombre>62</nombre>
+  <tipo>BARRA</tipo>
+  <padre>52</padre>
+  <impedancia>0</impedancia>
+ </Componente>
+<Componente>
+  <id>63</id>
+  <nombre>63</nombre>
+  <tipo>BARRA</tipo>
+  <padre>53</padre>
+  <impedancia>0</impedancia>
+ </Componente>
+<Componente>
+  <id>71</id>
+  <nombre>71</nombre>
+  <tipo>MOTOR</tipo>
+  <padre>62</padre>
+  <impedancia>2</impedancia>
+ </Componente>
+<Componente>
+  <id>72</id>
+  <nombre>72</nombre>
+  <tipo>MOTOR</tipo>
+  <padre>62</padre>
+  <impedancia>2</impedancia>
+ </Componente>
+</Componentes>
 </circuito>

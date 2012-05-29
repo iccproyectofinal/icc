@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<circuito>
+<componentes>
+
+ <componente>
+ <id>1</id>
+ <nombre>s1</nombre>
+ <tipo>SISTEMA</tipo>
+ <impedancia>1</impedancia>
+ <potencia>5</potencia>
+ </componente>
+
+
+ <componente>
+ <id>2</id>
+ <nombre>b1</nombre>
+ <tipo>BARRA</tipo>
+ <impedancia>2</impedancia>
+ <potencia>5</potencia>
+ <padre>1</padre>
+ </componente>
+
+<componente>
+<id>3</id>
+<nombre>t1</nombre>
+<tipo>TRAFO</tipo>
+<impedancia>3.33</impedancia>
+<potencia>50</potencia>
+<tensionCC>380</tensionCC>
+<padre>2</padre>
+</componente>
+
+<componente>
+<id>4</id>
+<nombre>L1</nombre>
+<tipo>LINEA</tipo>
+<impedancia>66.66</impedancia>
+<potencia>40</potencia>
+<seccion>25</seccion>
+<conductores>8</conductores>
+<longitud>60</longitud>
+<padre>3</padre>
+</componente>
+
+<componente>
+<id>5</id>
+<nombre>MI MOTORCITO</nombre>
+<tipo>MOTOR</tipo>
+<impedancia>12.31</impedancia>
+<tensionNominal>380</tensionNominal>
+<potenciaNominal>1500</potenciaNominal>
+<cosenoFi>0.91</cosenoFi>
+<padre>4</padre>
+</componente>
+
+<componente>
+<id>6</id>
+<nombre>MI OTRO MOTORCITO EN PARALELO</nombre>
+<tipo>MOTOR</tipo>
+<impedancia>12.31</impedancia>
+<tensionNominal>380</tensionNominal>
+<potenciaNominal>1500</potenciaNominal>
+<cosenoFi>0.91</cosenoFi>
+<padre>4</padre>
+</componente>
+
+<componente>
+<id>7</id>
+<nombre>Y OTRO MAS EN PARALELO</nombre>
+<tipo>MOTOR</tipo>
+<impedancia>12.31</impedancia>
+<tensionNominal>380</tensionNominal>
+<potenciaNominal>1500</potenciaNominal>
+<cosenoFi>0.91</cosenoFi>
+<padre>4</padre>
+</componente>
+
+ </componentes>
+</circuito>

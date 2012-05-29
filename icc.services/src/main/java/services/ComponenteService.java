@@ -15,9 +15,10 @@ import domain.TipoComponente;
  *
  */
 public class ComponenteService {
-	private static List<Componente> componentes = new ArrayList<Componente>();
+	
 	
 	public List<Componente> traerLista(Componente c) {
+		List<Componente> componentes = new ArrayList<Componente>();
 		c.traerLista(componentes);
 		return componentes;
 	}
