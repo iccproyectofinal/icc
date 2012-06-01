@@ -8,7 +8,7 @@ import java.util.List;
 
 import domain.Componente;
 import domain.Sistema;
-import domain.TipoComponente;
+
 
 /**
  * @author MCORREA
@@ -25,7 +25,7 @@ public class ComponenteService {
 	
 	public Componente traerPorId(int id, List<Componente> lista) {
 		for(Componente i : lista) {
-			if(i.getTipoComponente().getId() == id) {
+			if(i.getId() == id) {
 				return i;
 			}
 		}
@@ -33,9 +33,8 @@ public class ComponenteService {
 	}
 	
 	public Componente traerComponenteRaiz(List<Componente> lista) {
-		for(Componente i : lista) {
-			TipoComponente t = i.getTipoComponente();
-			if(t instanceof Sistema) {
+		for(Componente i : lista) {			
+			if(i instanceof Sistema) {
 				if(i.getPadre() == null) {
 					return i;
 				}

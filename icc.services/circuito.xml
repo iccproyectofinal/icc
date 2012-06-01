@@ -27,6 +27,7 @@
   <tipo>BARRA</tipo>
   <padre>31</padre>
   <impedancia>0</impedancia>
+  <voltajeReferencia>2</voltajeReferencia>
  </Componente>
 <Componente>
   <id>51</id>

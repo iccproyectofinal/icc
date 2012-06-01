@@ -5,11 +5,9 @@ import java.util.List;
 
 import domain.Barra;
 import domain.Componente;
-import domain.ComponenteCompuesto;
 import domain.Linea;
 import domain.Motor;
 import domain.Sistema;
-import domain.TipoComponente;
 import domain.Trafo;
 
 /**
@@ -28,10 +26,8 @@ public class CircuitoBuilder implements Builder {
 			double tension, double potenciaBase, double tensionBase,
 			double impedancia, int padre) {
 		System.out.println("Llamamos al método crearSistema");
-		TipoComponente t = new Sistema(id, nombre, potencia, tension, potenciaBase, tensionBase, impedancia);
-		Componente c = new ComponenteCompuesto(t);
-		componentes.add(c);
-		
+		Componente c = new Sistema(id, nombre, potencia, tension, potenciaBase, tensionBase, impedancia);		
+		componentes.add(c);		
 		unir(c, padre);
 	}
 
@@ -41,8 +37,7 @@ public class CircuitoBuilder implements Builder {
 	public void crearTrafo(int id, String nombre, double potencia,
 			double tensionCC, double impedancia, int padre) {
 		System.out.println("Llamamos al método crearTrafo");
-		TipoComponente t = new Trafo(id, nombre, potencia, tensionCC, impedancia);
-		Componente c = new ComponenteCompuesto(t);
+		Componente c  = new Trafo(id, nombre, potencia, tensionCC, impedancia);		
 		componentes.add(c);
 		
 		unir(c, padre);
@@ -55,8 +50,7 @@ public class CircuitoBuilder implements Builder {
 			double seccion, int conductores, double longitud,
 			double impedancia, int padre) {
 		System.out.println("Llamamos al método crearLinea");
-		TipoComponente t = new Linea(id, nombre, potencia, seccion, conductores, longitud, impedancia);
-		Componente c = new ComponenteCompuesto(t);
+		Componente c = new Linea(id, nombre, potencia, seccion, conductores, longitud, impedancia);		
 		componentes.add(c);
 		
 		unir(c, padre);
@@ -68,8 +62,7 @@ public class CircuitoBuilder implements Builder {
 	public void crearBarra(int id, String nombre, double voltajeReferencia,
 			int padre) {
 		System.out.println("Llamamos al método crearBarra");
-		TipoComponente t = new Barra(id, nombre, voltajeReferencia, 0);
-		Componente c = new ComponenteCompuesto(t);
+		Componente c = new Barra(id, nombre, voltajeReferencia, 0);		
 		componentes.add(c);
 		
 		unir(c, padre);
@@ -82,8 +75,7 @@ public class CircuitoBuilder implements Builder {
 			double potenciaNominal, double cosenoFi, double impedancia,
 			int padre) {
 		System.out.println("Llamamos al método crearMotor");
-		TipoComponente t = new Motor(id, nombre, tensionNominal, potenciaNominal, cosenoFi, impedancia);
-		Componente c = new ComponenteCompuesto(t);
+		Componente c = new Motor(id, nombre, tensionNominal, potenciaNominal, cosenoFi, impedancia);		
 		componentes.add(c);
 		
 		unir(c, padre);

@@ -7,7 +7,13 @@ package domain;
  * @author MCORREA
  *
  */
-public class Sistema implements TipoComponente {
+public class Sistema extends Componente {
+	
+	
+	private double potencia;
+	private double tension;
+	private double potenciaBase;
+	private double tensionBase;
 	
 	/**
 	 * @param id
@@ -18,16 +24,20 @@ public class Sistema implements TipoComponente {
 	 * @param tensionBase
 	 * @param impedancia
 	 */
+	
+	
 	public Sistema(int id, String nombre, double potencia, double tension,
 			double potenciaBase, double tensionBase, double impedancia) {
 		super();
-		this.id = id;
-		this.nombre = nombre;
+		this.setId(id);
+		this.setNombre(nombre);		
+		this.setImpedancia(impedancia);
+		
 		this.potencia = potencia;
 		this.tension = tension;
 		this.potenciaBase = potenciaBase;
 		this.tensionBase = tensionBase;
-		this.impedancia = impedancia;
+		
 	}
 
 	/**
@@ -86,63 +96,13 @@ public class Sistema implements TipoComponente {
 		this.tensionBase = tensionBase;
 	}
 
-	private int id;
-	private String nombre;
-	private double potencia;
-	private double tension;
-	private double potenciaBase;
-	private double tensionBase;
-	private double impedancia;
-
-	/* (non-Javadoc)
-	 * @see domain.TipoComponente#getId()
-	 */
-	public int getId() {
-		// TODO Auto-generated method stub
-		return id;
-	}
-
-	/* (non-Javadoc)
-	 * @see domain.TipoComponente#setId(int)
-	 */
-	public TipoComponente setId(int id) {
-		// TODO Auto-generated method stub
-		this.id = id;
-		return this;
-	}
-
-	/* (non-Javadoc)
-	 * @see domain.TipoComponente#getNombre()
-	 */
-	public String getNombre() {
-		// TODO Auto-generated method stub
-		return nombre;
-	}
-
-	/* (non-Javadoc)
-	 * @see domain.TipoComponente#setNombre(java.lang.String)
-	 */
-	public TipoComponente setNombre(String nombre) {
-		// TODO Auto-generated method stub
-		this.nombre = nombre;
-		return this;
-	}
 
 	/* (non-Javadoc)
 	 * @see domain.TipoComponente#getImpedancia()
 	 */
 	public double getImpedancia() {
 		// TODO Auto-generated method stub
-		return impedancia;
-	}
-
-	/* (non-Javadoc)
-	 * @see domain.TipoComponente#setImpedancia(double)
-	 */
-	public TipoComponente setImpedancia(double impedancia) {
-		// TODO Auto-generated method stub
-		this.impedancia = impedancia;
-		return this;
+		return super.getImpedancia();
 	}
 
 	/* (non-Javadoc)
@@ -151,11 +111,6 @@ public class Sistema implements TipoComponente {
 	public double getAdmitancia() {
 		// TODO Auto-generated method stub
 		return 1 / getImpedancia();
-	}
-
-	public double getVoltajeReferencia() {
-		// TODO Auto-generated method stub
-		return 0;
 	}
 
 }

@@ -8,6 +8,7 @@ import java.util.Map;
 import Jama.Matrix;
 import domain.*;
 
+
 public class CalcularCCService {
 
 	/**
@@ -18,7 +19,7 @@ public class CalcularCCService {
 	private double matrizAdmitancia [][];
 	private List<Componente> listComponentes = new ArrayList<Componente>();
 	
-	/*N0TA barra-BarraPos: OJO barras y barraPos, deben estar sincronizados! 
+	/*N0TA barras-BarraPos: OJO barras y barraPos, deben estar sincronizados! 
 	*la posicion 'pos' en barra debe coincidir con la clave en Hash barraPos	
 	*esto se puede realizar, ya que no se prevee eliminar ni insertar elementos
 	*en caso de requerir eliminar o insertar elementeos se debe corregir para poder 
@@ -37,27 +38,13 @@ public class CalcularCCService {
 
 	private boolean llenarMatrizDiagonal() {
 		/*
-		 * recorre la lista de Barras, por cada barra, suma los valores de A de
-		 * cada componente conenctado a esa barra
+		 * recorre la lista de Barras, por cada barra, pide la impedancia
 		 */
-		List<Componente> hijos = new ArrayList<Componente>();
+		
 		for (Componente miComponente : barras) {
 			double admitancia = 0;
-			// Object filO = barraPos.get(miComponente);
-			// System.out.println("fila:"+filO);
-			// int fil = Integer.parseInt(filO.toString());
-			int fil = barraPos.get(miComponente);
-			// toma los valores de admintancia del padre y de los hijos
-			double sumaImpedancia = 0;
-			TipoComponente padreTipo = miComponente.getPadre()
-					.getTipoComponente();
-			sumaImpedancia += padreTipo.getImpedancia();
-
-			hijos = miComponente.getHijos();
-			for (Componente miHijo : hijos) {
-				TipoComponente hijoTipo = miHijo.getTipoComponente();
-				sumaImpedancia += hijoTipo.getImpedancia();
-			}
+			int fil = barraPos.get(miComponente); 
+			double sumaImpedancia = miComponente.getImpedancia();
 			System.out.println(fil + "impedan" + sumaImpedancia);
 			admitancia = 1 / sumaImpedancia;
 			matrizAdmitancia[fil][fil] = admitancia;
@@ -82,13 +69,12 @@ public class CalcularCCService {
 			Componente miComponente = componenteIt.next();
 			// busca conexiones de directa barra - linea - barra
 			// es decir, si es linea busca padre barra, ó hijos barra
-			if ("domain.Barra" != (miComponente.getTipoComponente().getClass()
+			if ("domain.Barra" != (miComponente.getClass()
 					.getName())) {
-				admitancia = miComponente.getTipoComponente().getAdmitancia();
+				admitancia = miComponente.getAdmitancia();
 				// padre es barra?
 				if (miComponente.getPadre() != null) {
-					if ("domain.Barra" == (miComponente.getPadre()
-							.getTipoComponente().getClass().getName())) {
+					if ("domain.Barra" == (miComponente.getPadre().getClass().getName())) {
 						conexionBarras.add(miComponente.getPadre());
 					}
 				}
@@ -96,8 +82,7 @@ public class CalcularCCService {
 				hijos = miComponente.getHijos();
 				if (hijos != null) {
 					for (Componente miHijo : hijos) {
-						if ("domain.Barra" == (miHijo.getTipoComponente()
-								.getClass().getName())) {
+						if ("domain.Barra" == (miHijo.getClass().getName())) {
 							conexionBarras.add(miHijo);
 						}
 					}
@@ -131,10 +116,8 @@ public class CalcularCCService {
 		barras.clear();
 		barraPos.clear();
 		for (Componente i : listComponentes) {
-			// si es barra lo agrega en lista barras
-			TipoComponente tipoC = i.getTipoComponente();
-			Class clase = tipoC.getClass();
-			if ("domain.Barra" == clase.getName()) {				
+			// si es barra lo agrega en lista barras			
+			if ("domain.Barra" == i.getClass().getName()) {				
 				//OJO VER N0TA barra-BarraPos: 
 				barras.add(i);
 				// guarda las dupla "barra - posicion en arreglo" en un HashMap
@@ -176,6 +159,7 @@ public class CalcularCCService {
 		// El sistema busca el valor de la barra seleccionada en la matriz
 		// inversa.
 		int posBarra = barraPos.get(barra);
+		System.out.println("posBarra"+posBarra);
 
 		// carga matriz inversa con JAMA
 		Matrix matrizCalculo = new Matrix(matrizAdmitancia);
@@ -194,11 +178,11 @@ public class CalcularCCService {
 		 * referencia de la barra seleccionada, y Zkk es el elemento de la
 		 * matriz inversa que representa la barra.
 		 */
-		double vref = barra.getTipoComponente().getVoltajeReferencia();
+		double vref = ((Barra) barra).getVoltajeReferencia();
 		double zkk = matrizInversa[posBarra][posBarra];
 		double valorIf = vref / zkk;
 		calculoCC = valorIf;
-		System.out.println("Calculo de CC en barra "+barra.getTipoComponente().getId()+":"+valorIf);
+		System.out.println("Calculo de CC en barra "+barra.getId()+": "+valorIf+" = "+vref +"/"+zkk);
 
 		/*
 		 * Por cada barra que esta directamente conectada a la barra

@@ -14,15 +14,18 @@ public abstract class Componente {
 	/**
 	 * @param tipoComponente
 	 */
-	public Componente(TipoComponente tipoComponente) {
-		super();
-		//this.padre=null;
-		this.tipoComponente = tipoComponente;
-	}
 	
-	private List<Componente> hijos = new ArrayList<Componente>();
-	private TipoComponente tipoComponente;
+	public Componente() {
+		// TODO Auto-generated constructor stub
+	}
+
+	private List<Componente> hijos = new ArrayList<Componente>();	
 	private Componente padre;
+	private int id;	
+	private String nombre;
+	private double impedancia;
+	//private double admitancia;
+	
 	/**
 	 * @return the padre
 	 */
@@ -47,18 +50,8 @@ public abstract class Componente {
 	public void setHijos(List<Componente> hijos) {
 		this.hijos = hijos;
 	}
-	/**
-	 * @return the tipoComponente
-	 */
-	public TipoComponente getTipoComponente() {
-		return tipoComponente;
-	}
-	/**
-	 * @param tipoComponente the tipoComponente to set
-	 */
-	public void setTipoComponente(TipoComponente tipoComponente) {
-		this.tipoComponente = tipoComponente;
-	}
+
+
 	
 	public Componente cargarHijo(Componente componente) {
 		componente.setPadre(this);
@@ -69,8 +62,8 @@ public abstract class Componente {
 	public Componente mostrarArbol() {
 		
 		System.out.println(this + " padre: " + padre);
-		System.out.println(this + " tipo: " + this.getTipoComponente().getClass());
-		System.out.println(this + " impedancia: " + this.getTipoComponente().getImpedancia());
+		System.out.println(this + " tipo: " + this.getClass());
+		System.out.println(this + " impedancia: " + getImpedancia());
 		System.out.println("----");
 		
 		for (Componente i : hijos) {
@@ -92,7 +85,30 @@ public abstract class Componente {
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		
-		return String.valueOf(tipoComponente.getId());
+
+		return String.valueOf(this.getId());
 	}
+	public void setId(int getId) {
+		this.id = getId;
+	}
+	public int getId() {
+		return id;
+	}
+	public void setNombre(String getNombre) {
+		this.nombre = getNombre;
+	}
+	public String getNombre() {
+		return nombre;
+	}
+	public void setImpedancia(double getImpedancia) {
+		this.impedancia = getImpedancia;
+	}
+	public double getImpedancia() {
+		return impedancia;
+	}
+
+	public double getAdmitancia() {
+		return 1 / impedancia;
+	}
+
 }

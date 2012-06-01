@@ -89,7 +89,7 @@ public class DriverXml extends DefaultHandler {
 				builder.crearSistema(id, nombre, param1, param2, param3, param4, impedancia, padreId);
 			}
 			else if (tipoComponente.equals("trafo")) {
-				builder.crearTrafo(id, nombre, param1, param2, param3, padreId);
+				builder.crearTrafo(id, nombre, param1, param2, impedancia, padreId);
 			}
 			else if (tipoComponente.equals("linea")) {
 				builder.crearLinea(id, nombre, param1, param2, (int)param3, param4, impedancia, padreId);

@@ -1,50 +1,26 @@
 package domain;
 
-public class Trafo implements TipoComponente {
+public class Trafo extends Componente {
 	
-	private int id;
-	private String nombre;
+	
 	private double potencia;
 	private double tensionCC;
-	private double impedancia;
 
 	
  	public Trafo(int id, String nombre, double potencia, double tensionCC, double impedancia) {
-		this.id = id;
-		this.nombre = nombre;
-		this.potencia = potencia;
+		super();
+		this.setId(id);
+		this.setNombre(nombre);		
+		this.setImpedancia(impedancia);
+		
+ 		this.potencia = potencia;
 		this.tensionCC = tensionCC;
-		this.impedancia = impedancia;
-	}
-
-	public int getId() {
-		// TODO Auto-generated method stub
-		return id;
-	}
-
-	public TipoComponente setId(int id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public String getNombre() {
-		// TODO Auto-generated method stub
-		return nombre;
-	}
-
-	public TipoComponente setNombre(String nombre) {
-		// TODO Auto-generated method stub
-		return null;
+		
 	}
 
 	public double getImpedancia() {
 		// TODO Auto-generated method stub
-		return impedancia;
-	}
-
-	public TipoComponente setImpedancia(double impedancia) {
-		// TODO Auto-generated method stub
-		return null;
+		return super.getImpedancia();
 	}
 
 	public double getAdmitancia() {
@@ -68,9 +44,5 @@ public class Trafo implements TipoComponente {
 		return tensionCC;
 	}
 
-	public double getVoltajeReferencia() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
 
 }
