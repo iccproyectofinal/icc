@@ -12,7 +12,7 @@ import java.util.List;
  */
 public abstract class Componente {
 	/**
-	 * @param tipoComponente
+	 * 
 	 */
 	
 	public Componente() {

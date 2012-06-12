@@ -33,7 +33,7 @@ public class CalcularCCService {
 		listComponentes = componenteSrv.traerLista(componente);
 	}
 	private void crearMatriz (int n){
-	matrizAdmitancia = new double [n][n];		
+		matrizAdmitancia = new double [n][n];		
 	}
 
 	private boolean llenarMatrizDiagonal() {
